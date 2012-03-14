@@ -26,6 +26,10 @@
         <div data-role="content">
             <p style="text-align: center;">
                 <img src="Content/images/trinug_headerlogo.png" />
+                <h1>Welcome!</h1>
+                <p>
+                    TRINUG is user group that brings together .NET developers and technology enthusiasts from around the Triangle of North Carolina.
+                </p>
             </p>
         </div>
         <!-- /content -->
@@ -86,7 +90,7 @@
         </div>
         <!-- /header -->
         <div data-role="content">
-            this is the RDUCC page...
+            this is the Code Camp page...
         </div>
         <!-- /content -->
         <div data-role="footer" style="text-align: center;" data-position="fixed">
@@ -144,7 +148,7 @@
                     $.each(this, function (k, v) {
                         if (v.time > 0) {
                             var eventDate = new Date(v.time);
-                            var eventTitle = $.format.date(eventDate, "MMM dd") + ' - ' + v.name;
+                            var eventTitle = '<h1>' + $.format.date(eventDate, "MMM dd, yyyy") + '</h1><p>' + v.name + '</p>';
 
                             var a = document.createElement('a');
                             a.title = eventTitle;
