@@ -16,9 +16,9 @@
     <script src="Scripts/jquery.mobile-1.1.0-rc.1.min.js" type="text/javascript"></script>
     <script src="Scripts/jquery.dateFormat-1.0.js" type="text/javascript"></script>
     <script type="text/javascript">
-         $(document).ready(function () {
-                loadEventData();
-            });
+        $(document).ready(function () {
+            loadEventData();
+        });
     </script>
 </head>
 <body>
@@ -76,9 +76,7 @@
             </div>
             <!-- /header -->
             <div data-role="content">
-                <p>
-                    details go here...
-                </p>
+                <div id="eventDetails"></div>
             </div>
             <!-- /content -->
         </div>
@@ -137,6 +135,7 @@
         </div>
     </div>
     <script type="text/javascript">
+        var eventData;
         function loadEventData() {
             var apiKey = "2e6fa4e481d2ee585c356558d21";
             $.getJSON('https://api.meetup.com/2/events?key=2e6fa4e481d2ee585c356558d21&sign=true&group_urlname=TriNUG&page=20&callback=?', function (data) {
@@ -144,6 +143,7 @@
                 var list = $('#list');
                 list.html("");
                 //alert('items');
+                eventData = data;
                 $.each(data, function () {
                     $.each(this, function (k, v) {
                         if (v.time > 0) {
@@ -153,7 +153,7 @@
                             var a = document.createElement('a');
                             a.title = eventTitle;
                             a.innerHTML = eventTitle;
-                            a.href = "#eventDetails";
+                            a.href = "javascript:showDetails(" + v.id + ");";
 
 
                             //eventTitle = jQuery.trim(eventTitle).substring(0, 60).split(" ").slice(0, -1).join(" ") + "...";
@@ -166,6 +166,20 @@
                 list.listview("destroy").listview();
             });
         }
+        
+        function showDetails(id) {
+            //$("eventDetails").html = data.name;
+            $.each(eventData, function () {
+                $.each(this, function (k, v) {
+                    if (v.id == id) {
+                        alert('hello');
+                    }
+                });
+            });
+            
+            $.mobile.changePage($('#eventDetails'));
+        }
+
     </script>
 </body>
 </html>
