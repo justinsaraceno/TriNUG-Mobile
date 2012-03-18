@@ -76,7 +76,7 @@
             </div>
             <!-- /header -->
             <div data-role="content">
-                <div id="eventDetails"></div>
+                <div id="details">details here...</div>
             </div>
             <!-- /content -->
         </div>
@@ -135,31 +135,22 @@
         </div>
     </div>
     <script type="text/javascript">
-        var eventData;
         function loadEventData() {
             var apiKey = "2e6fa4e481d2ee585c356558d21";
-            $.getJSON('https://api.meetup.com/2/events?key=2e6fa4e481d2ee585c356558d21&sign=true&group_urlname=TriNUG&page=20&callback=?', function (data) {
-                //alert('Made it');
+            $.getJSON('https://api.meetup.com/2/events?key=' + apiKey + '&sign=true&group_urlname=TriNUG&page=20&callback=?', function (data) {
                 var list = $('#list');
                 list.html("");
-                //alert('items');
-                eventData = data;
+
                 $.each(data, function () {
                     $.each(this, function (k, v) {
                         if (v.time > 0) {
                             var eventDate = new Date(v.time);
                             var eventTitle = '<h1>' + $.format.date(eventDate, "MMM dd, yyyy") + '</h1><p>' + v.name + '</p>';
-
-                            var a = document.createElement('a');
-                            a.title = eventTitle;
-                            a.innerHTML = eventTitle;
-                            a.href = "javascript:showDetails(" + v.id + ");";
-
-
-                            //eventTitle = jQuery.trim(eventTitle).substring(0, 60).split(" ").slice(0, -1).join(" ") + "...";
-                            list.append(
-                                $(document.createElement('li')).html(a)
-                            );
+                            $('<a>')
+                                .data('event', v)
+                                .bind('click', function () { showDetails($(this).data('event')); })
+                                .html(eventTitle)
+                                .appendTo($('<li>').appendTo(list));
                         }
                     });
                 });
@@ -167,17 +158,12 @@
             });
         }
         
-        function showDetails(id) {
-            //$("eventDetails").html = data.name;
-            $.each(eventData, function () {
-                $.each(this, function (k, v) {
-                    if (v.id == id) {
-                        alert('hello');
-                    }
-                });
-            });
-            
+        function showDetails(event) {
+            //alert(event.name);
             $.mobile.changePage($('#eventDetails'));
+            var details = $('#details');
+            details.replaceWith(event.name);
+            
         }
 
     </script>
