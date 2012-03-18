@@ -72,11 +72,16 @@
     
     <div data-role="page" id="eventDetails" data-position="fixed" data-add-back-btn="true">
             <div data-role="header">
-                <h1>Details</h1>
+                <h1>Event Details</h1>
             </div>
             <!-- /header -->
             <div data-role="content">
-                <div id="details">details here...</div>
+                <div id="details">
+                    <h2 id="detailsTitle" class="details"></h2>
+                    <p id="detailsDate" class="details"></p>
+                    <div id="detailsLocation" class="details"></div>
+                    <p id="detailsDescription" class="details"></p>
+                </div>
             </div>
             <!-- /content -->
         </div>
@@ -138,7 +143,7 @@
         function loadEventData() {
             var apiKey = "2e6fa4e481d2ee585c356558d21";
             $.getJSON('https://api.meetup.com/2/events?key=' + apiKey + '&sign=true&group_urlname=TriNUG&page=20&callback=?', function (data) {
-                var list = $('#list');
+                var list = $('#events').find('#list');
                 list.html("");
 
                 $.each(data, function () {
@@ -159,13 +164,42 @@
         }
         
         function showDetails(event) {
-            //alert(event.name);
-            $.mobile.changePage($('#eventDetails'));
-            var details = $('#details');
-            details.replaceWith(event.name);
-            
+            var eventDate = new Date(event.time);
+            $('#detailsTitle.details').text(event.name);
+            $('#detailsDate.details').html('<b>' + $.format.date(eventDate, "MMM dd, yyyy") + '</b>');
+            $('#detailsDescription.details').html(event.description);
+            formatLocation(event.venue);
+            $.mobile.changePage($('#eventDetails'), {
+                 transition: 'slide'
+            });
         }
 
+        function formatLocation(venue) {
+            var location = $('#detailsLocation.details');
+            $('<span>')
+                .html('<b>' + venue.name + '</b><br/>')
+                .appendTo(location);
+            if(venue.address_1) {
+                $('<span>')
+                .html(venue.address_1 + '<br/>')
+                .appendTo(location);
+            }
+            if (venue.address_2) {
+                $('<span>')
+                .html(venue.address_2 + '<br/>')
+                .appendTo(location);
+            }
+            if (venue.address_3) {
+                $('<span>')
+                .html(venue.address_3 + '<br/>')
+                .appendTo(location);
+            }
+            if (venue.city) {
+                $('<span>')
+                .text(venue.city + ', ' + venue.state + '  ' + venue.zip)
+                .appendTo(location);
+            }
+        }
     </script>
 </body>
 </html>
