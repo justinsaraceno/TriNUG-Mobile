@@ -38,7 +38,6 @@
                 <ul>
                     <li><a href="#" data-icon="home" class="ui-btn-active ui-state-persist" data-transition="fade">Home</a></li>
                     <li><a href="#events" data-icon="grid" data-transition="fade">Events</a></li>
-                    <li><a href="#rducc" data-icon="star" data-transition="fade">Code Camp</a></li>
                     <li><a href="#about" data-icon="info" data-transition="fade">About</a></li>
                 </ul>
             </div>
@@ -62,7 +61,6 @@
                 <ul>
                     <li><a href="#main" data-icon="home"  data-transition="fade">Home</a></li>
                     <li><a href="#" data-icon="grid" class="ui-btn-active ui-state-persist" data-transition="fade">Events</a></li>
-                    <li><a href="#rducc" data-icon="star" data-transition="fade">Code Camp</a></li>
                     <li><a href="#about" data-icon="info" data-transition="fade">About</a></li>
                 </ul>
             </div>
@@ -71,43 +69,21 @@
     <!-- /events page -->
     
     <div data-role="page" id="eventDetails" data-position="fixed" data-add-back-btn="true">
-            <div data-role="header">
-                <h1>Event Details</h1>
-            </div>
-            <!-- /header -->
-            <div data-role="content">
-                <div id="details">
-                    <h2 id="detailsTitle" class="details"></h2>
-                    <p id="detailsDate" class="details"></p>
-                    <div id="detailsLocation" class="details"></div>
-                    <p id="detailsDescription" class="details"></p>
-                </div>
-            </div>
-            <!-- /content -->
-        </div>
-        <!-- /event details page -->  
-    
-    <div data-role="page" data-title="Code Camp" id="rducc">
-        <div data-role="header" data-position="fixed">
-            <h1>Code Camp</h1>
+        <div data-role="header">
+            <h1>Event Details</h1>
         </div>
         <!-- /header -->
         <div data-role="content">
-            this is the Code Camp page...
-        </div>
-        <!-- /content -->
-        <div data-role="footer" style="text-align: center;" data-position="fixed">
-            <div data-role="navbar">
-                <ul>
-                    <li><a href="#main" data-icon="home"  data-transition="fade">Home</a></li>
-                    <li><a href="#events" data-icon="grid" data-transition="fade">Events</a></li>
-                    <li><a href="#" data-icon="star" class="ui-btn-active ui-state-persist" data-transition="fade">Code Camp</a></li>
-                    <li><a href="#about" data-icon="info" data-transition="fade">About</a></li>
-                </ul>
+            <div id="details">
+                <h2 id="detailsTitle" class="details"></h2>
+                <p id="detailsDate" class="details"></p>
+                <div id="detailsLocation" class="details"></div>
+                <p id="detailsDescription" class="details"></p>
             </div>
         </div>
+        <!-- /content -->
     </div>
-    <!-- /events page -->
+    <!-- /event details page -->  
 
     <div data-role="page" data-title="About" id="about" data-add-back-btn="false">
         <div data-role="header" data-position="fixed">
@@ -133,7 +109,6 @@
                 <ul>
                     <li><a href="#main" data-icon="home"  data-transition="fade">Home</a></li>
                     <li><a href="#events" data-icon="grid" data-transition="fade">Events</a></li>
-                    <li><a href="#rducc" data-icon="star" data-transition="fade">Code Camp</a></li>
                     <li><a href="#" data-icon="info" class="ui-btn-active ui-state-persist" data-transition="fade">About</a></li>
                 </ul>
             </div>
@@ -176,6 +151,7 @@
 
         function formatLocation(venue) {
             var location = $('#detailsLocation.details');
+            location.html('');
             $('<span>')
                 .html('<b>' + venue.name + '</b><br/>')
                 .appendTo(location);
