@@ -2,7 +2,7 @@
 <widget xmlns		= "http://www.w3.org/ns/widgets"
 	xmlns:gap	= "http://phonegap.com/ns/1.0"
 	id		= "org.trinug.mobile.phonegap"
-	version 	= "0.1.1">
+	version 	= "0.1.2">
 
     <name>TRINUG</name>
 
@@ -17,6 +17,7 @@
 
     <icon src="icon.png" gap:role="default" />
     <feature name="http://api.phonegap.com/1.0/network"/>
+    <feature name="http://api.phonegap.com/1.0/notification"/>
     <access origin="*" />
 
     <preference name="orientation" value="portrait" />
