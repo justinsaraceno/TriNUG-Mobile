@@ -202,7 +202,7 @@
             states[Connection.CELL_4G] = 'Cell 4G connection';
             states[Connection.NONE] = 'No network connection';
 
-            $('#connType').html = 'Connection Type: ' + states[networkState];
+            $('#connType').html('Connection Type: ' + states[networkState]);
             alert('Connection type: ' + states[networkState]);
         }
     </script>
