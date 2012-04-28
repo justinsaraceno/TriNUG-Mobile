@@ -18,6 +18,7 @@
     <script type="text/javascript">
         $(document).ready(function () {
             loadEventData();
+            checkConnection();
         });
     </script>
 </head>
@@ -187,7 +188,7 @@
         // Cordova is loaded and it is now safe to make calls Cordova methods
         //
         function onDeviceReady() {
-            checkConnection();
+           // checkConnection();
         }
 
         function checkConnection() {
@@ -202,8 +203,8 @@
             states[Connection.CELL_4G] = 'Cell 4G connection';
             states[Connection.NONE] = 'No network connection';
 
-            alert('Connection type: ' + states[networkState]);
             $('#connType').html = states[networkState];
+            alert('Connection type: ' + states[networkState]);
         }
     </script>
 
