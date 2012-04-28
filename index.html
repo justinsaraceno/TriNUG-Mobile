@@ -18,6 +18,7 @@
     <script type="text/javascript">
         $(document).ready(function () {
             loadEventData();
+            checkConnection();
         });
     </script>
 </head>
@@ -38,7 +39,7 @@
                 <ul>
                     <li><a href="#" data-icon="home" class="ui-btn-active ui-state-persist" data-transition="fade">Home</a></li>
                     <li><a href="#events" data-icon="grid" data-transition="fade">Events</a></li>
-                    <li><a href="#about" data-icon="info" data-transition="fade" onclick="checkConnection();">About</a></li>
+                    <li><a href="#about" data-icon="info" data-transition="fade">About</a></li>
                 </ul>
             </div>
         </div>
@@ -101,6 +102,9 @@
                 - SIGs (Special Interest Groups) discussions and deep dives that each meet once a month. (1st, 3rd, and 4th Wed)<br/>
                 - free, day-long events titled CodeCampRDU.<br/>
                 - ad hoc meetings like Nerd Dinners, Pizza/Movie Night, Hack Night, and FireStarters
+            </p>
+            <p>
+                <strong>PhoneGap API Info:</strong>
             </p>
             <p id="connType">
             </p>
@@ -203,7 +207,7 @@
             states[Connection.NONE] = 'No network connection';
 
             $('#connType').html('Connection Type: ' + states[networkState]);
-            alert('Connection type: ' + states[networkState]);
+            //alert('Connection type: ' + states[networkState]);
         }
     </script>
 
