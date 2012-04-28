@@ -18,7 +18,6 @@
     <script type="text/javascript">
         $(document).ready(function () {
             loadEventData();
-            checkConnection();
         });
     </script>
 </head>
@@ -39,7 +38,7 @@
                 <ul>
                     <li><a href="#" data-icon="home" class="ui-btn-active ui-state-persist" data-transition="fade">Home</a></li>
                     <li><a href="#events" data-icon="grid" data-transition="fade">Events</a></li>
-                    <li><a href="#about" data-icon="info" data-transition="fade">About</a></li>
+                    <li><a href="#about" data-icon="info" data-transition="fade" onclick="checkConnection();">About</a></li>
                 </ul>
             </div>
         </div>
@@ -188,7 +187,7 @@
         // Cordova is loaded and it is now safe to make calls Cordova methods
         //
         function onDeviceReady() {
-           // checkConnection();
+            //checkConnection();
         }
 
         function checkConnection() {
@@ -203,7 +202,7 @@
             states[Connection.CELL_4G] = 'Cell 4G connection';
             states[Connection.NONE] = 'No network connection';
 
-            $('#connType').html = states[networkState];
+            $('#connType').html = 'Connection Type: ' + states[networkState];
             alert('Connection type: ' + states[networkState]);
         }
     </script>
