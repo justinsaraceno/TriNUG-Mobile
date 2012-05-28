@@ -16,7 +16,6 @@
     </author>
 
     <icon src="dotNet.png" gap:role="default" />
-    <gap:splash src="trinug_headerlogo.png" />
     <feature name="http://api.phonegap.com/1.0/network"/>
     <access origin="*" />
 
