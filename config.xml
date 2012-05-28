@@ -2,7 +2,7 @@
 <widget xmlns		= "http://www.w3.org/ns/widgets"
 	xmlns:gap	= "http://phonegap.com/ns/1.0"
 	id		= "org.trinug.mobile.phonegap"
-	version 	= "0.1.2">
+	version 	= "0.2.0">
 
     <name>TRINUG</name>
 
@@ -15,10 +15,10 @@
         Justin Saraceno
     </author>
 
-    <icon src="icon.png" gap:role="default" />
+    <icon src="dotNet.png" gap:role="default" />
+    <gap:splash src="trinug_headerlogo.png" />
     <feature name="http://api.phonegap.com/1.0/network"/>
-    <feature name="http://api.phonegap.com/1.0/notification"/>
     <access origin="*" />
 
-    <preference name="orientation" value="portrait" />
+    <preference name="orientation" value="default" />
 </widget>
