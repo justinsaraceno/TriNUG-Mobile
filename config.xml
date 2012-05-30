@@ -2,7 +2,7 @@
 <widget xmlns		= "http://www.w3.org/ns/widgets"
 	xmlns:gap	= "http://phonegap.com/ns/1.0"
 	id		= "org.trinug.mobile.phonegap"
-	version 	= "0.2.0">
+	version 	= "0.2.1">
 
     <name>TRINUG</name>
 
@@ -14,9 +14,16 @@
 		email="justin.saraceno@gmail.com">
         Justin Saraceno
     </author>
+    <preference value="1.7.0" name="phonegap-version"/>
 
+    <!-- icons -->
     <icon src="icon_057.png" gap:role="default" />
-    <gap:splash src="splash.png" width="242" height="116" />
+    <gap:splash src="splash.png" />
+    <gap:splash src="splash/android/ldpi.png" gap:platform="android" gap:density="ldpi"/>
+    <gap:splash src="splash/android/mdpi.png" gap:platform="android" gap:density="mdpi"/>
+    <gap:splash src="splash/android/hdpi.png" gap:platform="android" gap:density="hdpi"/>
+    
+    <!-- api access -->
     <feature name="http://api.phonegap.com/1.0/network"/>
     <access origin="*" />
 
