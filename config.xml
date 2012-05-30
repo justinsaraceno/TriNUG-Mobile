@@ -15,7 +15,8 @@
         Justin Saraceno
     </author>
 
-    <icon src="dotNet.png" gap:role="default" />
+    <icon src="icon_057.png" gap:role="default" />
+    <img src="Content/images/trinug_headerlogo.png" width="242" height="116" />
     <feature name="http://api.phonegap.com/1.0/network"/>
     <access origin="*" />
 
