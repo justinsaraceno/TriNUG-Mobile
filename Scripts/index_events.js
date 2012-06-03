@@ -1,6 +1,6 @@
 ﻿function loadEventData() {
     var apiKey = "2e6fa4e481d2ee585c356558d21";
-    $.getJSON('https://api.meetup.com/2/events?key=' + apiKey + '&sign=true&group_urlname=XTriNUG&page=20&callback=?', function (data) {
+    $.getJSON('https://api.meetup.com/2/events?key=' + apiKey + '&sign=true&group_urlname=TriNUG&page=20&callback=?', function (data) {
         var list = $('#events').find('#list');
         list.html('');
         if (data.results.length > 0) {
