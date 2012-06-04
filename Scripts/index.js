@@ -1,8 +1,8 @@
 ﻿function loadEventData() {
     var apiKey = "2e6fa4e481d2ee585c356558d21";
     $.getJSON('https://api.meetup.com/2/events?key=' + apiKey + '&sign=true&group_urlname=TriNUG&page=20&callback=?', function (data) {
-        var list = $('#events').find('#list');
-        list.html('');
+        var list = $('#main').find('#list');
+        //list.html('');
         if (data.results.length > 0) {
             $.each(data, function () {
                 $.each(this, function (k, v) {
@@ -11,31 +11,31 @@
                         var eventTitle = '<h1>' + $.format.date(eventDate, "MMM dd, yyyy") + '</h1><p>' + v.name + '</p>';
                         $('<a>')
                             .data('event', v)
-                            .bind('click', function () { showDetails($(this).data('event')); })
+                            .bind('click', function () { showEventDetails($(this).data('event')); })
                             .html(eventTitle)
                             .appendTo($('<li>').appendTo(list));
                     }
                 });
             });
         } else {
-            list.html('<li>Sorry, no events are currently scheduled.</li>');
+            list.html('<li>Sorry, no meetings are currently scheduled.</li>');
         }
         list.listview("destroy").listview();
     });
 }
 
-function showDetails(event) {
+function showEventDetails(event) {
     var eventDate = new Date(event.time);
     $('#detailsTitle.details').text(event.name);
     $('#detailsDate.details').html('<b>' + $.format.date(eventDate, "MMM dd, yyyy") + '</b>');
     $('#detailsDescription.details').html(event.description);
-    formatLocation(event.venue);
+    formatEventLocation(event.venue);
     $.mobile.changePage($('#eventDetails'), {
         transition: 'slide'
     });
 }
 
-function formatLocation(venue) {
+function formatEventLocation(venue) {
     var location = $('#detailsLocation.details');
     location.html('');
     $('<span>')
@@ -62,3 +62,4 @@ function formatLocation(venue) {
                 .appendTo(location);
     }
 }
+
