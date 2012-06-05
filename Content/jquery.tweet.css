@@ -1,7 +1,7 @@
 .tweet,
 .query {
-	font: 100% Georgia, serif;
-	color: #085258;
+	font: 100% "Helvetica Neue", Arial, sans-serif;
+	color: #FFFFFF;
 }
 
 	.tweet_list {
@@ -12,7 +12,7 @@
 		margin: 0;
 		padding: 0;
 		overflow-y: hidden;
-		background-color: #ededed;
+		background-color: #354861;
 	}
 	
 		.tweet_list li {
@@ -23,11 +23,11 @@
 		}
 		
 			.tweet_list li a {
-				color: #0C717A;
+				color: #FFFFFF;
 			}
 		
 		.tweet_list .tweet_even {
-			background-color: #ededed;
+			background-color: #637185;
 		}
 		
 		.tweet_list .tweet_avatar {

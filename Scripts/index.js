@@ -31,7 +31,7 @@ function showEventDetails(event) {
     $('#detailsDescription.details').html(event.description);
     formatEventLocation(event.venue);
     $.mobile.changePage($('#eventDetails'), {
-        transition: 'slide'
+        transition: 'none'
     });
 }
 
