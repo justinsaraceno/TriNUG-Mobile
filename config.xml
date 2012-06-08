@@ -2,12 +2,12 @@
 <widget xmlns		= "http://www.w3.org/ns/widgets"
 	xmlns:gap	= "http://phonegap.com/ns/1.0"
 	id		= "org.trinug.mobile.phonegap"
-	version 	= "0.3.3">
+	version 	= "0.3.5">
 
     <name>TRINUG</name>
 
     <description>
-        Triangle .NET Users Group
+        Triangle .NET User Group
     </description>
 
     <author href="https://github.com/justinsaraceno"
@@ -18,6 +18,9 @@
 
     <!-- icons -->
     <icon src="icon_057.png" gap:role="default" />
+    <icon src="Content/images/icons/android/ldpi.png" gap:platform="android" gap:density="ldpi" />
+    <icon src="Content/images/icons/android/mdpi.png" gap:platform="android" gap:density="mdpi" />
+    <icon src="Content/images/icons/android/hdpi.png" gap:platform="android" gap:density="hdpi" />
     <gap:splash src="splash.png" />
     <gap:splash src="splash/android/ldpi.png" gap:platform="android" gap:density="ldpi"/>
     <gap:splash src="splash/android/mdpi.png" gap:platform="android" gap:density="mdpi"/>
