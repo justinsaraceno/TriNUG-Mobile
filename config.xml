@@ -2,7 +2,7 @@
 <widget xmlns		= "http://www.w3.org/ns/widgets"
 	xmlns:gap	= "http://phonegap.com/ns/1.0"
 	id		= "org.trinug.mobile.phonegap"
-	version 	= "0.3.5">
+	version 	= "1.0.0">
 
     <name>TRINUG</name>
 
