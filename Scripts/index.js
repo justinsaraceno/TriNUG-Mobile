@@ -8,7 +8,7 @@
                 $.each(this, function (k, v) {
                     if (v.time > 0) {
                         var eventDate = new Date(v.time);
-                        var eventTitle = '<h1>' + $.format.date(eventDate, "MMM dd, yyyy") + '</h1><p>' + v.name + '</p>';
+                        var eventTitle = '<h1>' + $.format.date(eventDate, "MMM dd, yyyy h:mm a") + '</h1><p>' + v.name + '</p>';
                         $('<a>')
                             .data('event', v)
                             .bind('click', function () { showEventDetails($(this).data('event')); })
@@ -27,7 +27,7 @@
 function showEventDetails(event) {
     var eventDate = new Date(event.time);
     $('#detailsTitle.details').text(event.name);
-    $('#detailsDate.details').html('<b>' + $.format.date(eventDate, "MMM dd, yyyy") + '</b>');
+    $('#detailsDate.details').html('<b>' + $.format.date(eventDate, "MMM dd, yyyy h:mm a") + '</b>');
     $('#detailsDescription.details').html(event.description);
     formatEventLocation(event.venue);
     $.mobile.changePage($('#eventDetails'), {
