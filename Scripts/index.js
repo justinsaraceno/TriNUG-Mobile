@@ -2,7 +2,9 @@
     var apiKey = "2e6fa4e481d2ee585c356558d21";
     $.getJSON('https://api.meetup.com/2/events?key=' + apiKey + '&sign=true&group_urlname=TriNUG&page=20&callback=?', function (data) {
         var list = $('#main').find('#list');
-        //list.html('');
+        list.empty();
+        
+        list.html('<li data-role="list-divider" data-icon="star" data-iconpos="left" class="ui-btn-active ui-state-persist">Scheduled Meetings</li>');
         if (data.results.length > 0) {
             $.each(data, function () {
                 $.each(this, function (k, v) {
