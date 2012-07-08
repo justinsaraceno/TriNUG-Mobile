@@ -20,6 +20,10 @@
         $(document).bind('mobileinit', function() {
             // placeholder for future PhoneGap API logic
         });
+        
+//        $(document).ready(function () {
+//            loadEventData();
+//        });
 
         // initialize twitter plugin
         jQuery(function ($) {
@@ -31,98 +35,105 @@
         });
     </script>
 </head>
-<body>
-    <div data-role="page" id="main" data-theme="a">
-        <div data-role="content">
-            <p style="text-align: center;">
-                <img src="Content/images/trinug_headerlogo.png" />
-            </p>
-            <p>&nbsp;</p>
-            <p>
-                <ul data-role="listview" id="list" data-filter="false" data-inset="false"> 
-                    <li data-role="list-divider">Scheduled Meetings</li>
-                </ul>
-            </p>
+    <body>
+        <div data-role="page" id="main" data-theme="a">
+            <div data-role="header" data-position="fixed">
+                <a href="#" data-icon="refresh" onclick="checkConnection();">Refresh</a>
+                <h1>Events</h1>
+            </div>
+            <div data-role="content">
+                <p style="text-align: center;">
+                    <img src="Content/images/trinug_headerlogo.png" />
+                </p>
+                <p>&nbsp;</p>
+                <p>
+                    <ul data-role="listview" id="list" data-filter="false" data-inset="false"> 
+                        <!--<li data-role="list-divider" data-icon="star" data-iconpos="left" class="ui-btn-active ui-state-persist">
+                            Scheduled Meetings
+                        </li>-->
+                    </ul>
+                </p>
             
-        </div>
-        <!-- /content -->
-        <div data-role="footer" style="text-align: center;" data-position="fixed">
-            <div data-role="navbar">
-                <ul>
-                    <li><a href="#" data-icon="home" class="ui-btn-active ui-state-persist" data-transition="none">Home</a></li>
-                    <li><a href="#twitter" data-icon="twitter" data-transition="none">Twitter</a></li>
-                    <li><a href="#about" data-icon="info" data-transition="none">About</a></li>
-                </ul>
+            </div>
+            <!-- /content -->
+            <div data-role="footer" style="text-align: center;" data-position="fixed">
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="#" data-icon="calendar" class="ui-btn-active ui-state-persist" data-transition="none">Events</a></li>
+                        <li><a href="#twitter" data-icon="twitter" data-transition="none">Twitter</a></li>
+                        <li><a href="#about" data-icon="info" data-transition="none">About</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </div>
-    <!-- / main page -->
+        <!-- / main page -->
 
-    <div data-role="page" data-title="Twitter" id="twitter" data-theme="a">
-        <div data-role="header" data-position="fixed">
-            <h1>@TRINUG</h1>
-        </div>
-        <!-- /header -->
-        <div data-role="content">
-            <div class="tweet"></div>
-        </div>
-        <!-- /content -->
-        <div data-role="footer" style="text-align: center;" data-position="fixed">
-            <div data-role="navbar">
-                <ul>
-                    <li><a href="#main" data-icon="home"  data-transition="none">Home</a></li>
-                    <li><a href="#" data-icon="twitter" class="ui-btn-active ui-state-persist" data-transition="none">Twitter</a></li>
-                    <li><a href="#about" data-icon="info" data-transition="none">About</a></li>
-                </ul>
+        <div data-role="page" data-title="Twitter" id="twitter" data-theme="a">
+            <div data-role="header" data-position="fixed">
+                <h1>@TRINUG</h1>
+            </div>
+            <!-- /header -->
+            <div data-role="content">
+                <div class="tweet"></div>
+            </div>
+            <!-- /content -->
+            <div data-role="footer" style="text-align: center;" data-position="fixed">
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="#main" data-icon="calendar"  data-transition="none">Events</a></li>
+                        <li><a href="#" data-icon="twitter" class="ui-btn-active ui-state-persist" data-transition="none">Twitter</a></li>
+                        <li><a href="#about" data-icon="info" data-transition="none">About</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </div>
-    <!-- /twitter page -->
+        <!-- /twitter page -->
     
-    <div data-role="page" id="eventDetails" data-position="fixed" data-add-back-btn="true" data-theme="a">
-        <div data-role="header">
-            <h1>Event Details</h1>
+        <div data-role="page" id="eventDetails" data-position="fixed" data-add-back-btn="true" data-theme="a">
+            <div data-role="header">
+                <h1>Event Details</h1>
+            </div>
+            <!-- /header -->
+            <div data-role="content">
+                <div id="details">
+                    <h2 id="detailsTitle" class="details"></h2>
+                    <p id="detailsDate" class="details"></p>
+                    <div id="detailsLocation" class="details"></div>
+                    <p id="detailsDescription" class="details"></p>
+                </div>
+            </div>
+            <!-- /content -->
         </div>
-        <!-- /header -->
-        <div data-role="content">
-            <div id="details">
-                <h2 id="detailsTitle" class="details"></h2>
-                <p id="detailsDate" class="details"></p>
-                <div id="detailsLocation" class="details"></div>
-                <p id="detailsDescription" class="details"></p>
+        <!-- /event details page -->  
+
+        <div data-role="page" data-title="About" id="about" data-add-back-btn="false" data-theme="a">
+            <div data-role="header" data-position="fixed">
+                <h1>About</h1>
+            </div>
+            <!-- /header -->
+            <div data-role="content">
+                <p>
+                    <h3>Get Involved:</h3>
+                    <ul>
+                        <li>Fork this app's source on GitHub at: <br/>
+                        <a href="https://github.com/justinsaraceno/TriNUG-Mobile" data-rel="external">https://github.com/justinsaraceno/TriNUG-Mobile</a></li>
+                        <li>Download the latest PhoneGap Build install <a href="https://build.phonegap.com/apps/105325/share" data-rel="external">here</a></li>
+                        <li>Want more info?  Contact @JustinSaraceno on Twitter.</li>
+                    </ul>
+                </p>
+            </div>
+            <!-- /content -->
+            <div data-role="footer" style="text-align: center;" data-position="fixed">
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="#main" data-icon="calendar"  data-transition="none">Events</a></li>
+                        <li><a href="#twitter" data-icon="twitter" data-transition="none">Twitter</a></li>
+                        <li><a href="#" data-icon="info" class="ui-btn-active ui-state-persist" data-transition="none">About</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
-        <!-- /content -->
-    </div>
-    <!-- /event details page -->  
+        <!-- /about page --> 
 
-    <div data-role="page" data-title="About" id="about" data-add-back-btn="false" data-theme="a">
-        <div data-role="header" data-position="fixed">
-            <h1>About</h1>
-        </div>
-        <!-- /header -->
-        <div data-role="content">
-            <p>
-                <h3>Get Involved:</h3>
-                <ul>
-                    <li>Fork this app's source on GitHub at <a href="https://github.com/justinsaraceno/TriNUG-Mobile" data-rel="external">https://github.com/justinsaraceno/TriNUG-Mobile</a></li>
-                    <li>Download the latest PhoneGap Build install <a href="https://build.phonegap.com/apps/105325/share" data-rel="external">here</a></li>
-                    <li>Want more info?  Contact @JustinSaraceno on Twitter.</li>
-                </ul>
-            </p>
-        </div>
-        <!-- /content -->
-        <div data-role="footer" style="text-align: center;" data-position="fixed">
-            <div data-role="navbar">
-                <ul>
-                    <li><a href="#main" data-icon="home"  data-transition="none">Home</a></li>
-                    <li><a href="#twitter" data-icon="twitter" data-transition="none">Twitter</a></li>
-                    <li><a href="#" data-icon="info" class="ui-btn-active ui-state-persist" data-transition="none">About</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <!-- /about page --> 
-
-</body>
+    </body>
 </html>
