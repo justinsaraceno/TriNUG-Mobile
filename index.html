@@ -8,14 +8,18 @@
     <link href="Content/jquery.mobile.structure-1.1.0.min.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet"  href="Content/jqm-icon-pack-1.1.1-original.css" />
     <link href="Content/jquery.tweet.css" rel="stylesheet" type="text/css" />
+    <link href="Content/jquery.mobile.iscrollview-pull.css" rel="stylesheet" type="text/css" />
 
     <script type="text/javascript" src="cordova.js"></script>
     <script src="Scripts/jquery-1.7.1.min.js" type="text/javascript"></script>
     <script src="Scripts/jquery.mobile-1.1.0.min.js" type="text/javascript"></script>
     <script src="Scripts/jquery.dateFormat-1.0.js" type="text/javascript"></script>
-    <script src="Scripts/index.js" type="text/javascript"></script>
-    <script src="Scripts/index_api.js" type="text/javascript"></script>
+    <script src="Scripts/trinug.events.js" type="text/javascript"></script>
+    <script src="Scripts/trinug.phonegap.js" type="text/javascript"></script>
+    <script src="Scripts/trinug.pulltorefresh.js" type="text/javascript"></script>
     <script src="Scripts/jquery.tweet.js" type="text/javascript"></script>
+    <script src="Scripts/iscroll.js" type="text/javascript"></script>
+    <script src="Scripts/jquery.mobile.iscrollview.js" type="text/javascript"></script>
     <script type="text/javascript">
         $(document).bind('mobileinit', function() {
             // placeholder for future PhoneGap API logic
@@ -38,22 +42,21 @@
     <body>
         <div data-role="page" id="main" data-theme="a">
             <div data-role="header" data-position="fixed">
-                <a href="#" data-icon="refresh" onclick="checkConnection();">Refresh</a>
                 <h1>Events</h1>
             </div>
-            <div data-role="content">
+            <div data-role="content" data-iscroll='{"resizeWrapper":false}' class="iscroll-wrapper">
+                <div class="iscroll-pulldown">
+                    <span class="iscroll-pull-icon"></span>
+                    <span class="iscroll-pull-label"></span>
+                </div> 
                 <p style="text-align: center;">
                     <img src="Content/images/trinug_headerlogo.png" />
                 </p>
                 <p>&nbsp;</p>
                 <p>
-                    <ul data-role="listview" id="list" data-filter="false" data-inset="false"> 
-                        <!--<li data-role="list-divider" data-icon="star" data-iconpos="left" class="ui-btn-active ui-state-persist">
-                            Scheduled Meetings
-                        </li>-->
+                    <ul data-role="listview" id="list" data-filter="false" data-inset="false">
                     </ul>
                 </p>
-            
             </div>
             <!-- /content -->
             <div data-role="footer" style="text-align: center;" data-position="fixed">
@@ -66,7 +69,7 @@
                 </div>
             </div>
         </div>
-        <!-- / main page -->
+        <!-- / events page -->
 
         <div data-role="page" data-title="Twitter" id="twitter" data-theme="a">
             <div data-role="header" data-position="fixed">

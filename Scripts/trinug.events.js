@@ -65,3 +65,16 @@ function formatEventLocation(venue) {
     }
 }
 
+function reportNoConnection() {
+    var disconnectedMessage = "Network connection is unavailable.  Unable to load event data.  Pull down to refresh.";
+//    navigator.notification.alert(
+//            disconnectedMessage,    // message
+//            null,                   // callback function
+//            'No Connection',        // title
+//            'Done'                  // buttonName
+//        );
+
+    var list = $('#main').find('#list');
+    list.html('<li>' + disconnectedMessage + '</li>');
+    list.listview("destroy").listview();
+}

@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<widget xmlns		= "http://www.w3.org/ns/widgets"
+<widget xmlns	= "http://www.w3.org/ns/widgets"
 	xmlns:gap	= "http://phonegap.com/ns/1.0"
-	id		= "org.trinug.mobile.phonegap"
-	version 	= "1.0.2">
+	id		    = "org.trinug.mobile.phonegap"
+	version 	= "1.0.4">
 
     <name>TRINUG</name>
 
@@ -10,7 +10,7 @@
         Triangle .NET User Group
     </description>
 
-    <author href="https://github.com/justinsaraceno"
+    <author href="http://www.justinsaraceno.com"
 		email="justin.saraceno@gmail.com">
         Justin Saraceno
     </author>
