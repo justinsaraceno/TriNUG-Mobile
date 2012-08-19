@@ -2,7 +2,7 @@
 jQuery(function ($) {
     $(".tweet").tweet({
         username: "TRINUG",
-        count: 5,
+        count: 10,
         join_text: "auto",
         avatar_size: 32,
         loading_text: "loading tweets...",

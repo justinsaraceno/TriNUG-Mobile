@@ -2,7 +2,7 @@
 <widget xmlns	= "http://www.w3.org/ns/widgets"
 	xmlns:gap	= "http://phonegap.com/ns/1.0"
 	id		    = "org.trinug.mobile.phonegap"
-	version 	= "1.0.5">
+	version 	= "1.1.0">
 
     <name>TRINUG</name>
 
@@ -14,7 +14,7 @@
 		email="justin.saraceno@gmail.com">
         Justin Saraceno
     </author>
-    <preference value="1.7.0" name="phonegap-version"/>
+    <preference value="2.0.0" name="phonegap-version"/>
 
     <!-- icons -->
     <icon src="icon_057.png" gap:role="default" />
